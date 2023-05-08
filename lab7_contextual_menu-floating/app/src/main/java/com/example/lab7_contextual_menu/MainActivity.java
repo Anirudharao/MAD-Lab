@@ -36,8 +36,15 @@ public class MainActivity extends AppCompatActivity {
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
 
+
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
+
+                    if(item.getItemId() == R.id.menu_item_1){
+                        Intent intent = new Intent(getApplicationContext(), secondActivity.class);
+                        startActivity(intent);
+                    }
+
                     switch (item.getItemId()) {
                         case R.id.menu_item_1:
                             Intent intent = new Intent(getApplicationContext(), secondActivity.class);

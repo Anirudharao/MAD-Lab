@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/adminNoticeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Notification Title"
+        android:layout_marginTop="50dp"
+        android:textColorHint="#999999"/>
+
+    <EditText
+        android:id="@+id/adminNoticePincode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pincode of the concerned location"
+        android:layout_below="@+id/adminNoticeTitle"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#999999"/>
+
+    <EditText
+        android:id="@+id/adminNoticeCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Category"
+        android:layout_below="@+id/adminNoticePincode"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#999999"/>
+
+    <EditText
+        android:id="@+id/adminNoticeDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Notification Details"
+        android:layout_below="@+id/adminNoticeCategory"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#999999"/>
+
+    <Button
+        android:id="@+id/adminNoticeSubmitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_below="@+id/adminNoticeDetails"
+        android:layout_marginTop="80dp"/>
+
+</RelativeLayout>

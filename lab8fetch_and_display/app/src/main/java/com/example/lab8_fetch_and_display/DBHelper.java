@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "Login.db";
     public DBHelper(Context context) {
-        super(context, "Login.db", null, 1);
+        super(context, "user_details.db", null, 1);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Boolean checkusername(String username) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username = ?", new String[]{username});
+        Cursor cursor = MyDB.rawQuery("Select * from Admin where username = ?", new String[]{username});
         if (cursor.getCount() > 0)
             return true;
         else
