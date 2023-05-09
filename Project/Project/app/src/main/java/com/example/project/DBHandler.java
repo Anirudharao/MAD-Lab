@@ -80,15 +80,15 @@ public class DBHandler extends SQLiteOpenHelper {
             return false;
     }
 
-    public class UserQueries {
+    public class UserQuery {
 
 
 
-        public static final String TABLE_NAME = "UserQueries";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_PIN_CODE = "pin_code";
-        public static final String COLUMN_QUERY = "query";
-        public static final String COLUMN_CATEGORY = "category";
+        public static final String TABLE_NAME = "UserQuery";
+        public static final String COLUMN_ID = "ID";
+        public static final String COLUMN_PIN_CODE = "Pincode";
+        public static final String COLUMN_QUERY = "Query";
+        public static final String COLUMN_CATEGORY = "Category";
 
         public static final String CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + "("

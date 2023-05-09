@@ -10,37 +10,57 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/adminNoticeTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Notification Title"
-        android:layout_marginTop="50dp"
-        android:textColorHint="#999999"/>
-
-    <EditText
         android:id="@+id/adminNoticePincode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Pincode of the concerned location"
-        android:layout_below="@+id/adminNoticeTitle"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:textColorHint="#999999"/>
 
     <EditText
-        android:id="@+id/adminNoticeCategory"
+        android:id="@+id/adminNoticeTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Category"
         android:layout_below="@+id/adminNoticePincode"
-        android:layout_marginTop="20dp"
+        android:hint="Notification Title"
+        android:layout_marginTop="50dp"
         android:textColorHint="#999999"/>
+
+
+
+<!--    <EditText-->
+<!--        android:id="@+id/adminNoticeCategory"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Category"-->
+<!--        android:layout_below="@+id/adminNoticeTitle"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textColorHint="#999999"/>-->
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Category"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/adminNoticeTitle"
+        />
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/text"
+
+        android:layout_marginBottom="50dp" />
 
     <EditText
         android:id="@+id/adminNoticeDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Notification Details"
-        android:layout_below="@+id/adminNoticeCategory"
+        android:layout_below="@+id/categorySpinner"
         android:layout_marginTop="20dp"
         android:textColorHint="#999999"/>
 
@@ -50,6 +70,14 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:layout_below="@+id/adminNoticeDetails"
+        android:layout_marginTop="80dp"/>
+
+    <Button
+        android:id="@+id/adminFetchQueriesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="See users' queries"
+        android:layout_below="@+id/adminNoticeSubmitButton"
         android:layout_marginTop="80dp"/>
 
 </RelativeLayout>

@@ -22,7 +22,7 @@ public class user_query extends AppCompatActivity implements AdapterView.OnItemS
     private EditText queryEditText;
     private Spinner categorySpinner;
     private Button submitButton;
-
+    private int ID = 2;
 
     String category;
 
@@ -83,11 +83,12 @@ public class user_query extends AppCompatActivity implements AdapterView.OnItemS
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
 
                 ContentValues values = new ContentValues();
-                values.put(DBHandler.UserQueries.COLUMN_PIN_CODE, pinCode);
-                values.put(DBHandler.UserQueries.COLUMN_QUERY, query);
-                values.put(DBHandler.UserQueries.COLUMN_CATEGORY, selected_category);
+                values.put(DBHandler.UserQuery.COLUMN_PIN_CODE, pinCode);
+                values.put(DBHandler.UserQuery.COLUMN_QUERY, query);
+                values.put(DBHandler.UserQuery.COLUMN_CATEGORY, selected_category);
+//                values.put(DBHandler.UserQuery.COLUMN_ID, ID++);
 
-                long newRowId = db.insert(DBHandler.UserQueries.TABLE_NAME, null, values);
+                long newRowId = db.insert(DBHandler.UserQuery.TABLE_NAME, null, values);
 
                 if (newRowId == -1) {
                     Toast.makeText(user_query.this, "Error saving query to database", Toast.LENGTH_SHORT).show();

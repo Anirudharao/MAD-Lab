@@ -63,7 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("Pincode", pincode);
         values.put("Notification_title", title);
         values.put("Notification_details", details);
-        values.put("ID", i++);
+//        values.put("ID", i++);
 //        values.put("ID", ID);
         values.put("Category", category);
 
@@ -78,6 +78,27 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public ArrayList<String> categoryWiseNotification(String category){
+        ArrayList<String>list = new ArrayList<>();
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from Notification where Category = ?", new String[]{category});
+
+        if (cursor.moveToFirst()) {
+            do {
+                String pin = cursor.getString(0);
+                String title = cursor.getString(1);
+                String details = cursor.getString(2);
+//                String category = cursor.getString(4);
+                list.add(0, pin + " - " + title + " - " + details + " - " + category);
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return list;
     }
 
     public Cursor viewData(){
@@ -109,4 +130,48 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return namesList;
     }
+
+//    public ArrayList<String> fetchQueries(String pin){
+//        ArrayList<String> queryList = new ArrayList<>();
+//
+//        SQLiteDatabase db = this.getReadableDatabase();
+//
+//        Cursor cursor = db.query("UserQuery", null, null, null, null, null, "ID");
+//
+//        if (cursor.moveToFirst()) {
+//            do {
+////                String pin = cursor.getString(0);
+//                String query = cursor.getString(1);
+//                String category = cursor.getString(3);
+//                queryList.add(0, pin + " - " + query + " - " + category);
+//
+//            } while (cursor.moveToNext());
+//        }
+//
+//        cursor.close();
+//
+//        return queryList;
+//    }
+
+    public ArrayList<String> fetchQueries(String pin){
+        ArrayList<String>list = new ArrayList<>();
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserQuery where Pincode = ?", new String[]{pin});
+
+        if (cursor.moveToFirst()) {
+            do {
+//                String pin = cursor.getString(0);
+                String query = cursor.getString(1);
+                String category = cursor.getString(3);
+                list.add(0, pin + " - " + query + " - " + category);
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return list;
+    }
+
+
 }
